@@ -69,12 +69,17 @@ const List = () => {
                   <div
                     ref={provided.innerRef}
                     {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                    style={getItemStyle(
-                      snapshot.isDragging,
-                      provided.draggableProps.style
-                    )}
+                    style={{
+                      display: 'flex', alignItems: 'center', ...getItemStyle(
+                        snapshot.isDragging,
+                        provided.draggableProps.style
+                      )
+                    }}
                   >
+                    <div
+                      style={{ width: 30, height: 30, background: '#000' }}
+                      {...provided.dragHandleProps}
+                    />
                     {item.content}
                   </div>
                 )}
@@ -84,7 +89,7 @@ const List = () => {
           </div>
         )}
       </Droppable>
-    </DragDropContext>
+    </DragDropContext >
   );
 }
 
